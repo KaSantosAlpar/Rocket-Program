@@ -1,4 +1,4 @@
-# 🚀 Rocket Program - Karin Santos
+# 🚀 Rocket Program - Kariny Santos
 
 Repositório central de estudos do programa de estágio, focado em desenvolvimento Full Stack.
 
