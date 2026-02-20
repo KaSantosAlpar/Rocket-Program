@@ -1,16 +1,27 @@
-# 🚀 Rocket Program - Kariny Santos
+# 🚀 Rocket Program | Kariny Santos
 
-Repositório central de estudos do programa de estágio, focado em desenvolvimento Full Stack.
+Repositório dedicado ao registro de aprendizado e projetos práticos desenvolvidos durante o estágio. Aqui, transformo teoria em código! 💻✨
 
-## 📂 Organização do Repositório
-
-### 🧠 [Módulo 01 - JavaScript Básico](./01-javascript-basico/)
-* Lógica de programação e manipulação de dados.
-* Desafios de Bhaskara, Adivinhação, Lista de Compras e CRUD.
-
-### 🎨 [Módulo 02 - HTML, CSS e Bootstrap](./02-html-css-bootstrap/)
-* Estruturação semântica e estilização de interfaces.
-* **🌐 Projeto Principal:** [Acesse meu Portfólio aqui!](https://kasantosalpar.github.io/Rocket-Program/02-html-css-bootstrap/)
+## 🌐 Portfólio Online
+Você pode visualizar o resultado final dos meus projetos de frontend através do link abaixo:
+👉 **[Acesse meu Portfólio e Projetos](https://kasantosalpar.github.io/Rocket-Program/02-html-css-bootstrap/)**
 
 ---
-*Status: Em constante evolução... 💻*
+
+## 📂 Organização por Módulos
+
+### 🧠 [Módulo 01 - JavaScript Básico](./01-javascript-basico/)
+Focado na base da programação.
+* **Projetos:** Calculadora de Bhaskara, Jogo de Adivinhação, Lista de Compras e Sistema CRUD.
+* **Conceitos:** Variáveis, Condicionais, Laços de Repetição e Funções.
+
+### 🎨 [Módulo 02 - HTML, CSS e Bootstrap](./02-html-css-bootstrap/)
+Criação de interfaces modernas e responsivas.
+* **Projetos Realizados:**
+    * 🏠 [Portfólio Pessoal](./02-html-css-bootstrap/index.html) - Página principal de apresentação.
+    * ☕ [Menu Cafeteria](./02-html-css-bootstrap/desafio-cafeteria/) - Estruturação de listas aninhadas.
+* **Em Desenvolvimento:**
+    * 📋 Desafios 03, 04 e 05 (Formulários, Tabelas e Layouts).
+
+---
+*“A melhor forma de prever o futuro é inventando-o.” – Alan Kay* 🚀
