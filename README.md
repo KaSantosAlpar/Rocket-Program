@@ -1,36 +1,28 @@
-🚀 #Rocket Program | ##Kariny Santos
-Repositório dedicado ao registro de aprendizado e projetos práticos desenvolvidos durante o estágio. Aqui, transformo teoria em código! 💻✨
+# 👑 Kariny Santos
+## 🚀 Rocket Program 
 
-🌐 Portfólio Online
-Você pode visualizar o resultado final dos meus projetos de frontend através do link abaixo:
-👉 Acesse meu Portfólio e Projetos
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 
-📂 Organização por Módulos
-🧠 Módulo 01 - JavaScript Básico
-Focado na base da programação.
+---
 
-Projetos: Calculadora de Bhaskara, Jogo de Adivinhação, Lista de Compras e Sistema CRUD.
+> Repositório dedicado ao registro de aprendizado e projetos práticos desenvolvidos durante o estágio. Aqui, transformo teoria em código! 💻✨
 
-Conceitos: Variáveis, Condicionais, Laços de Repetição e Funções.
+## 🌐 Portfólio Online
+👉 **[Acesse meu Portfólio e Projetos](https://kasantosalpar.github.io/Rocket-Program/02-html-css-bootstrap/)**
 
-🎨 Módulo 02 - HTML, CSS e Bootstrap
-Criação de interfaces modernas e responsivas.
+---
 
-Projetos Realizados:
+## 📂 Organização por Módulos
 
-🏠 Portfólio Pessoal - Página principal de apresentação.
+### 🧠 [Módulo 01 - JavaScript Básico](./01-javascript-basico/)
+* **Projetos:** Bhaskara, Jogo de Adivinhação, Lista de Compras e CRUD.
 
-☕ Tech & Coffee - Landing page completa para uma cafeteria tecnológica, com menu personalizado e design verde pastel.
+### 🎨 [Módulo 02 - HTML, CSS e Bootstrap](./02-html-css-bootstrap/)
+* **Destaque:** ☕ **[Tech & Coffee](./02-html-css-bootstrap/desafio03-/cafeteria/layoutCafeteria.html)** - Landing page completa com design verde pastel.
+* **Outros:** 🏠 [Portfólio Pessoal](./02-html-css-bootstrap/index.html).
 
-Em Desenvolvimento:
-
-📋 Desafios 04 e 05 (Tabelas Avançadas e Layouts de Sistemas).
-
-🛠️ Ferramentas Utilizadas
-Editor: VS Code
-
-Versionamento: Git & GitHub
-
-Framework: Bootstrap 5
-
-“A melhor forma de prever o futuro é inventando-o.” – Alan Kay 🚀
+---
+*“A melhor forma de prever o futuro é inventando-o.” – Alan Kay* 🚀
