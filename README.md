@@ -1,4 +1,4 @@
-🚀 Rocket Program | Kariny Santos
+🚀 #Rocket Program | ##Kariny Santos
 Repositório dedicado ao registro de aprendizado e projetos práticos desenvolvidos durante o estágio. Aqui, transformo teoria em código! 💻✨
 
 🌐 Portfólio Online
