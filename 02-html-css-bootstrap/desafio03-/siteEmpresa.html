@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Tech & Coffee</title>
+
+<style>
+
+/* CORPO */
+
+body{
+
+margin:0;
+font-family:Arial;
+
+}
+
+/* CABEÇALHO */
+
+header{
+
+background-color:#4F6F52;
+color:white;
+padding:15px;
+
+/*Flexbox para centralizar o conteúdo*/
+display:flex;
+flex-direction:column;  
+align-items:center;
+justify-content: center;
+
+}
+
+/* BOTÃO MENU */
+
+.botao-menu{
+position:absolute;
+left: 20px;
+font-size:25px;
+cursor:pointer;
+
+}
+
+/* MENU LATERAL */
+
+.menu-lateral{
+
+height:100%;
+width:0;
+position:fixed;
+top:0;
+left:0;
+background-color:#3A5A40;
+overflow-x:hidden;
+transition:0.3s;
+padding-top:60px;
+
+}
+
+/* LINKS */
+
+.menu-lateral a{
+
+display:block;
+color:white;
+padding:15px;
+text-decoration:none;
+
+}
+
+.menu-lateral a:hover{
+
+background-color:#588157;
+
+}
+
+/* BOTÃO FECHAR */
+
+.fechar{
+
+position:absolute;
+top:10px;
+right:20px;
+font-size:30px;
+
+}
+
+/* CONTEÚDO */
+
+main{
+
+padding:20px;
+
+}
+
+.imagem-cafeteria{
+display:block;
+margin:20px auto;
+width:80%;
+max-width:600px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* RODAPÉ */
+
+footer{
+
+background-color:#4F6F52;
+color:white;
+text-align:center;
+padding:15px;
+position: fixed;
+bottom: 0;
+width: 100%;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<span class="botao-menu" onclick="abrirMenu()">☰ Menu</span>
+
+<h1>☕ Tech & Coffee</h1>
+
+<p>Onde o código e o café se encontram</p>
+
+</header>
+
+
+
+<div id="menu" class="menu-lateral">
+
+<a href="javascript:void(0)" class="fechar" onclick="fecharMenu()">×</a>
+
+<a href="cafeteria/siteEmpresa.html">Início</a>
+
+<a href="cafeteria/layoutCafeteria.html">Menu</a>
+
+<a href="cafeteria/missao.html"> Sobre Nós</a>
+
+<a href="#">Contato</a>
+
+</div>
+
+
+
+<main>
+
+<h2>Bem-vindo à cafeteria</h2>
+<image src="cafeteria/cafeteria.png" alt="Cafeteria Tech & Coffee" width="40%" height="300px">
+
+<p>Aqui vai seu conteúdo normal.</p>
+
+</main>
+
+
+
+<footer>
+
+Rua dos Devs, nº 1024 - Bairro Binário - Cidade Tech - Contato: (11) 1234-5678
+
+</footer>
+
+
+
+<script>
+
+function abrirMenu(){
+
+document.getElementById("menu").style.width="250px";
+
+}
+
+function fecharMenu(){
+
+document.getElementById("menu").style.width="0";
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>
