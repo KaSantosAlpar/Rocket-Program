@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Podcast | Tecnologia e Carreira</title>
+
+<style>
+
+/* FUNDO */
+
+body{
+
+margin:0;
+font-family:Segoe UI, sans-serif;
+background:linear-gradient(135deg,#0f172a,#240046);
+color:white;
+
+}
+
+
+/* BOTÃO VOLTAR */
+
+.voltar{
+
+position:absolute;
+top:20px;
+left:20px;
+background:#c77dff;
+color:white;
+padding:10px 20px;
+border-radius:20px;
+text-decoration:none;
+transition:0.3s;
+
+}
+
+.voltar:hover{
+
+background:#9d4edd;
+transform:scale(1.05);
+
+}
+
+
+/* HEADER */
+
+header{
+
+text-align:center;
+padding:40px;
+animation:fadeIn 1.5s;
+
+}
+
+.header-capa{
+
+background-image:url("capaPodcast.png");
+background-size:cover;
+background-position:center;
+height:350px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+
+.overlay{
+
+background:rgba(0,0,0,0.6);
+width:100%;
+height:100%;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+}
+
+
+.perfil{
+
+width:140px;
+height:140px;
+border-radius:50%;
+border:4px solid #c77dff;
+margin-bottom:15px;
+
+}
+
+
+/* FOTO PERFIL */
+
+.perfil{
+
+width:150px;
+height:150px;
+border-radius:50%;
+border:4px solid #c77dff;
+margin-bottom:15px;
+object-fit:cover;
+
+}
+
+
+/* CONTAINER */
+
+.container{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+}
+
+
+/* CARDS */
+
+.card{
+
+background:rgba(255,255,255,0.05);
+padding:25px;
+margin:20px;
+border-radius:15px;
+width:60%;
+text-align:center;
+box-shadow:0 0 20px rgba(199,125,255,0.3);
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:scale(1.03);
+
+}
+
+
+/* TITULOS */
+
+h1{
+
+color:#e0aaff;
+
+}
+
+h2{
+
+color:#c77dff;
+
+}
+
+
+/* MIDIA */
+
+video,audio{
+
+width:80%;
+margin-top:15px;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+text-align:center;
+padding:20px;
+margin-top:30px;
+background:#10002b;
+
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(-20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<a href="index.html" class="voltar">← Voltar</a>
+
+
+<header class="header-capa">
+
+<div class="overlay">
+
+<img src="Meu avatar.png" class="perfil">
+
+<h1>Tecnologia e Carreira</h1>
+
+<p>Podcast sobre minha jornada e o protagonismo feminino na tecnologia 💜</p>
+
+</div>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+<h2>🎬 Vídeo de Apresentação</h2>
+
+<!-- SEU VIDEO AQUI -->
+<video controls>
+
+<source src="SEU-VIDEO.mp4">
+
+</video>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🎙 Episódio 1</h2>
+
+<p>Minha jornada na tecnologia</p>
+
+<!-- SEU AUDIO AQUI -->
+<audio controls>
+
+<source src="AUDIO1.mp3">
+
+</audio>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🎙 Episódio 2</h2>
+
+<p>Mulheres na TI e desafios</p>
+
+<!-- SEU AUDIO AQUI -->
+<audio controls>
+
+<source src="AUDIO2.mp3">
+
+</audio>
+
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+
+Kariny dos Santos • Podcast Tecnologia e Carreira • 2026
+
+</footer>
+
+
+</body>
+</html>
