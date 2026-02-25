@@ -22,6 +22,7 @@
 
 ### 🎨 [Módulo 02 - HTML, CSS e Bootstrap](./02-html-css-bootstrap/)
 * **Destaque:** ☕ **[Tech & Coffee](./02-html-css-bootstrap/desafio03-/cafeteria/layoutCafeteria.html)** - Landing page completa com design verde pastel.
+
 Novo: 📇 Cartão de Perfil Profissional - Apresentação pessoal utilizando conceitos avançados de CSS (Flexbox e Hover effects).
 * **Outros:** 🏠 [Portfólio Pessoal](./02-html-css-bootstrap/index.html).
 
