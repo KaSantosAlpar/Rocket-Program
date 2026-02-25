@@ -1,42 +1,465 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio | Kariny dos Santos</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfólio | Kariny Santos</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+/* FUNDO */
+
+body{
+
+font-family:Segoe UI, sans-serif;
+
+background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+
+color:white;
+
+}
+
+
+/* MENU */
+
+nav{
+
+position:fixed;
+
+top:0;
+
+width:100%;
+
+background:rgba(0,0,0,0.7);
+
+padding:15px;
+
+text-align:center;
+
+z-index:1000;
+
+box-shadow:0 0 15px #ff00c8;
+
+}
+
+nav a{
+
+color:white;
+
+margin:15px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+nav a:hover{
+
+color:#ff00c8;
+
+}
+
+
+/* CAPA */
+
+header{
+
+height:500px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+background:
+
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+
+url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+
+background-size:cover;
+
+}
+
+
+header h1{
+
+font-size:50px;
+
+color:#ff00c8;
+
+animation:fadeDown 1s;
+
+}
+
+header p{
+
+font-size:20px;
+
+margin-top:10px;
+
+animation:fadeUp 1s;
+
+}
+
+
+/* FOTO */
+
+.avatar{
+
+margin-top:-70px;
+
+text-align:center;
+
+}
+
+.avatar img{
+
+width:150px;
+
+border-radius:50%;
+
+border:4px solid #ff00c8;
+
+box-shadow:0 0 25px #ff00c8;
+
+}
+
+
+/* SEÇÕES */
+
+section{
+
+padding:60px;
+
+text-align:center;
+
+}
+
+
+/* TITULOS */
+
+h2{
+
+color:#ff00c8;
+
+margin-bottom:20px;
+
+}
+
+
+/* PROJETOS */
+
+.projetos{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+}
+
+
+.card{
+
+background:rgba(0,0,0,0.5);
+
+padding:20px;
+
+width:250px;
+
+border-radius:15px;
+
+box-shadow:0 0 15px #7b00ff;
+
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 0 25px #ff00c8;
+
+}
+
+
+/* BOTÕES */
+
+.btn{
+
+display:inline-block;
+
+margin-top:10px;
+
+padding:10px 20px;
+
+border-radius:10px;
+
+background:linear-gradient(90deg,#ff00c8,#7b00ff);
+
+color:white;
+
+text-decoration:none;
+
+}
+
+
+/* CONTATO */
+
+.contato a{
+
+display:block;
+
+margin:10px;
+
+color:#ff00c8;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+background:black;
+
+padding:20px;
+
+text-align:center;
+
+}
+
+
+/* ANIMAÇÕES */
+
+@keyframes fadeDown{
+
+from{
+
+opacity:0;
+
+transform:translateY(-50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-    
-    <header>
-        <h1>Kariny Santos</h1>
-        <p>Desenvolvedora em Formação | Rocket Program</p>
-    </header>
-    <img src="https://ui-avatars.com/api/?name=Kariny+Santos&background=random&size=150" alt="Avatar da Kariny">
-    <hr>
-    <section id="sobre-mim">
-        <h2>Sobre Mim</h2>
-        <p>Olá! Sou a Kariny, uma entusiasta da tecnologia e apaixonada por desenvolvimento web. Atualmente, estou me dedicando a aprender HTML, CSS e Bootstrap para criar sites incríveis. Estou animada para compartilhar meus projetos e conhecimentos com vocês!</p>
 
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Bootstrap</li>
-            <em>Proximos projetos em breve...</em>
-        </ul>
 
-    </section>
+<!-- MENU -->
 
-    <section>
-        <h2>Contato</h2>
-        <p>Se você quiser entrar em contato comigo, fique à vontade para me enviar um email para <a href="mailto:kariny.santos@rocketseat.com.br">kariny.santos@rocketseat.com.br</a></p>
-    <li><a href="https://github.com/KaSantosAlpar" target="_blank">Meu GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/kariny-santos-883a991a7/" target="_blank">LinkedIn</a></li>
-    </section>
+<nav>
 
-    <footer>
-        <hr>
-        <p>&copy; 2026 Kariny dos Santos. Todos os direitos reservados
-    </footer>
+<a href="#sobre">Sobre</a>
+
+<a href="#projetos">Projetos</a>
+
+<a href="#contato">Contato</a>
+
+</nav>
+
+
+
+<!-- CAPA -->
+
+<header>
+
+<h1>Kariny Santos</h1>
+
+<p>Desenvolvedora em Formação • Tecnologia • Dados</p>
+
+</header>
+
+
+
+<!-- FOTO -->
+
+<div class="avatar">
+
+<img src="https://ui-avatars.com/api/?name=Kariny+Santos&size=150">
+
+</div>
+
+
+
+<!-- SOBRE -->
+
+<section id="sobre">
+
+<h2>Sobre Mim</h2>
+
+<p>
+
+Sou estudante de Análise e Desenvolvimento de Sistemas e faço parte do Rocket Program.
+
+Meu foco é desenvolvimento web, dados e sistemas corporativos.
+
+Estou construindo minha carreira na tecnologia com projetos práticos e aprendizado contínuo.
+
+</p>
+
+</section>
+
+
+
+<!-- PROJETOS -->
+
+<section id="projetos">
+
+<h2>Projetos</h2>
+
+<div class="projetos">
+
+
+<div class="card">
+
+<h3>☕ Site Cafeteria</h3>
+
+<p>Site completo usando HTML e CSS</p>
+
+<a href="#" class="btn">
+
+Ver Projeto
+
+</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🎙 Podcast Tech</h3>
+
+<p>Podcast sobre mulheres na tecnologia</p>
+
+<a href="#" class="btn">
+
+Ver Projeto
+
+</a>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>📊 Dashboard</h3>
+
+<p>Projeto com análise de dados</p>
+
+<a href="#" class="btn">
+
+Ver Projeto
+
+</a>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- CONTATO -->
+
+<section id="contato">
+
+<h2>Contato</h2>
+
+<div class="contato">
+
+<a href="mailto:kariny.santos@rocketseat.com.br">
+
+Email
+
+</a>
+
+<a href="https://github.com/KaSantosAlpar" target="_blank">
+
+GitHub
+
+</a>
+
+<a href="https://www.linkedin.com/in/kariny-santos-883a991a7/" target="_blank">
+
+LinkedIn
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+© 2026 Kariny Santos
+
+</footer>
+
+
 
 </body>
 </html>
