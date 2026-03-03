@@ -10,7 +10,7 @@ body {
 .card {
     width: 250px;
     height: 350px;
-    perspective: 1000px;
+    perspective: 1200px;
 }
 
 /* ELEMENTO QUE GIRA */
@@ -19,7 +19,7 @@ body {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.8s;
+    transition: transform 0.8s cubic-bezier(.4,.2,.2,1);
 }
 
 /* EFEITO DE VIRAR */
@@ -42,6 +42,14 @@ body {
     background: white;
     padding: 20px;
     border: 2px solid black;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.3),
+        inset 0 0 5px rgba(0,0,0,0.2);
+        .card-front {
+    background: linear-gradient(145deg, #ffffff, #f4f4f4);
+    border: 2px solid #000;
+    border-radius: 18px;
+}
 }
 
 /* VERSO */
@@ -96,4 +104,8 @@ body {
 /* IMAGEM CENTRAL DA DAMA */
 .rainha {
     width: 150px;
+    .rainha {
+    width: 160px;
+    filter: drop-shadow(0 5px 8px rgba(0,0,0,0.4));
+}
 }
