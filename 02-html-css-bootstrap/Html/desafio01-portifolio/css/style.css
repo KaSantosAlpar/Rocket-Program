@@ -115,22 +115,14 @@ margin-bottom:30px;
 font-size:32px;
 }
 
-/* PROJETOS */
-
-.projetos{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-width:280px;
-border-radius:15px;
-transition:0.4s;
-border:1px solid rgba(255,255,255,0.1);
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    width: 280px; /* Isso ajuda a não ficar "largo" demais! */
+    border-radius: 15px;
+    transition: 0.4s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Dica: adiciona um efeito de vidro tech */
 }
 
 .card:hover{
