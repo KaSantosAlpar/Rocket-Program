@@ -1,0 +1,10 @@
+# Ignorar arquivos do sistema
+Thumbs.db
+.DS_Store
+
+# Ignorar pastas de editores
+.vscode/
+.idea/
+
+# Ignorar logs de erro
+*.log
