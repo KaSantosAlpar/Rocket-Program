@@ -10,6 +10,12 @@
 
 > Repositório dedicado ao registro de aprendizado e projetos práticos desenvolvidos durante o estágio. Aqui, transformo teoria em código! 💻✨
 
+## ☢️ PROJETO EM DESTAQUE: BadIdeaDex
+Uma aplicação interativa estilo Pokedex, mas para "ideias terríveis". Inclui roleta dinâmica, níveis de toxicidade e interface Neon.
+👉 **[Ver projeto na Branch projeto-dex](https://github.com/KaSantosAlpar/Rocket-Program/tree/projeto-dex)**
+
+---
+
 ## 🌐 Portfólio Online
 👉 **[Acesse meu Portfólio e Projetos](https://kasantosalpar.github.io/Rocket-Program/02-html-css-bootstrap/)**
 
@@ -21,10 +27,9 @@
 * **Projetos:** Bhaskara, Jogo de Adivinhação, Lista de Compras e CRUD.
 
 ### 🎨 [Módulo 02 - HTML, CSS e Bootstrap](./02-html-css-bootstrap/)
-**Destaque:** ☕ Tech & Coffee - Landing page completa com design verde pastel.
+* **Destaque:** ☕ Tech & Coffee - Landing page completa com design verde pastel.
+* **Novo:** 📇 Cartão de Perfil Profissional - Conceitos avançados de Flexbox e Hover effects.
+* **Outros:** 🏠 Portfólio Pessoal.
 
-Novo: 📇 Cartão de Perfil Profissional - Apresentação pessoal utilizando conceitos avançados de CSS (Flexbox e Hover effects).
-
-Outros: 🏠 Portfólio Pessoal.
 ---
 *“A melhor forma de prever o futuro é inventando-o.” – Alan Kay* 🚀
