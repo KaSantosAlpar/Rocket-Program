@@ -1,0 +1,148 @@
+/* css/cards.css */
+.grid-ideias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* O Card Base - Escuro, Tóxico e pronto para o Néon */
+.card-explorar {
+    background: rgba(15, 15, 15, 0.9); /* Fundo quase preto, semi-transparente */
+    border-radius: 10px;
+    padding: 25px;
+    color: #e0e0e0; /* Texto claro */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Título e Texto Radioativo dentro do Card */
+.card-explorar h4 {
+    color: #39FF14; /* Título Verde Néon */
+    text-shadow: 0 0 5px #39FF14;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.card-explorar p strong {
+    color: #39FF14; /* Destaque Verde Néon */
+}
+
+.card-img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+}
+
+/* --- ESTILO NÉON POR CATEGORIA (Usando classes de cor) --- */
+
+/* Cocô de Ideia (Castanho/Dourado Tóxico) */
+.categoria-brown {
+    border: 2px solid #8b5a2b;
+    box-shadow: 0 0 10px rgba(139, 90, 43, 0.5);
+}
+.categoria-brown h4, .categoria-brown strong, .nivel-brown { color: #cd853f !important; text-shadow: 0 0 5px #cd853f; }
+
+/* Ideia Estúpida (Vermelho Erro Critical) */
+.categoria-red {
+    border: 2px solid #ff3c3c;
+    box-shadow: 0 0 10px rgba(255, 60, 60, 0.5);
+}
+.categoria-red h4, .categoria-red strong, .nivel-red { color: #ff6b6b !important; text-shadow: 0 0 5px #ff6b6b; }
+
+/* Baita Ideia Burra (Laranja Alerta) */
+.categoria-orange {
+    border: 2px solid #ff7a18;
+    box-shadow: 0 0 10px rgba(255, 122, 24, 0.5);
+}
+.categoria-orange h4, .categoria-orange strong, .nivel-orange { color: #ff9f43 !important; text-shadow: 0 0 5px #ff9f43; }
+
+/* Ideia de Jerico (Roxo Bio-Perigo) */
+.categoria-purple {
+    border: 2px solid #b05cff;
+    box-shadow: 0 0 10px rgba(176, 92, 255, 0.5);
+}
+.categoria-purple h4, .categoria-purple strong, .nivel-purple { color: #c48cff !important; text-shadow: 0 0 5px #c48cff; }
+
+
+/* --- ANIMAÇÕES --- */
+
+/* Removido o float constante que mexia muito */
+
+/* ANIMAÇÃO AO CLICAR (Adicionada via JS) */
+.card-explorar.clicado {
+    animation: click-pulse 0.4s ease-out;
+}
+
+@keyframes click-pulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px currentColor; }
+    50% { transform: scale(0.95); box-shadow: 0 0 30px currentColor; }
+    100% { transform: scale(1); box-shadow: 0 0 15px currentColor; }
+}
+
+/* Efeito Glitch para Nível 5 (Mantido, mas mais sutil) */
+.glitch { animation: glitch 1s infinite; }
+@keyframes glitch { 
+    0%, 100% { transform: translate(0); } 
+    20% { transform: translate(-2px, 2px); } 
+    40% { transform: translate(2px, -2px); } 
+    60% { transform: translate(-1px, 0); } 
+}
+
+/* --- MODAL (POPUP) RÁDIOATIVO --- */
+.modal-content {
+    background-color: #1a1a1a;
+    border: 2px solid #ff0000; /* Borda vermelha padrão de alerta */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+    color: #e0e0e0;
+}
+
+.modal-header { border-bottom: 1px solid #ff0000; }
+.modal-title { color: #ff0000; text-transform: uppercase; text-shadow: 0 0 10px #ff0000; }
+.btn-close { filter: invert(1); } /* Torna o X do fechar branco */
+
+/* Efeito de card revelado no Modal */
+.card-revelado-neon {
+    background: #000;
+    border: 4px solid currentColor;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 20px currentColor, inset 0 0 10px currentColor;
+    animation: pulsoCritico 0.6s infinite alternate;
+}
+
+@keyframes pulsoCritico {
+    from { filter: brightness(1) drop-shadow(0 0 5px currentColor); }
+    to { filter: brightness(1.5) drop-shadow(0 0 20px currentColor); }
+}
+
+.anima-pulso-neon {
+    animation: pulsoNeon 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulsoNeon {
+    0% { 
+        box-shadow: 0 0 10px currentColor, inset 0 0 5px currentColor;
+        transform: scale(1);
+    }
+    100% { 
+        box-shadow: 0 0 30px currentColor, inset 0 0 15px currentColor;
+        transform: scale(1.02);
+    }
+}
+
+.animate-flicker {
+    animation: flicker 0.5s infinite;
+}
+
+.info-toxica p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    border-left: 3px solid currentColor;
+    padding-left: 10px;
+}

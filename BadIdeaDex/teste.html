@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>☢️ BadIdeaDex - DEBUG MODE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #000; color: #39FF14; font-family: 'Courier New', monospace; text-align: center; }
+        .roleta-container { position: relative; display: flex; flex-direction: column; align-items: center; margin: 50px auto; width: 400px; }
+        .seta { font-size: 50px; color: #39FF14; text-shadow: 0 0 15px #39FF14; z-index: 10; margin-bottom: -20px; }
+        
+        #roleta {
+            width: 350px; height: 350px; border-radius: 50%;
+            border: 10px solid #111; box-shadow: 0 0 30px #39FF14;
+            background: conic-gradient(#222 0deg 36deg, #ff3c3c 36deg 72deg, #222 72deg 108deg, #ff3c3c 108deg 144deg, #222 144deg 180deg, #ff3c3c 180deg 216deg, #222 216deg 252deg, #ff3c3c 252deg 288deg, #222 288deg 324deg, #ff3c3c 324deg 360deg);
+            transition: transform 5s cubic-bezier(0.15, 0, 0.15, 1);
+        }
+
+        .btn-girar {
+            background: #39FF14; color: #000; border: none; padding: 15px 30px;
+            font-weight: bold; text-transform: uppercase; margin-top: 30px; cursor: pointer;
+            box-shadow: 0 0 15px #39FF14; border-radius: 5px;
+        }
+
+        .card-toxico { background: #111; border: 3px solid currentColor; border-radius: 15px; padding: 20px; color: #fff; }
+        .nivel-red { color: #ff3c3c; } .nivel-brown { color: #8b5a2b; }
+    </style>
+</head>
+<body>
+
+    <h1 class="mt-5">☢️ BadIdeaDex ☢️</h1>
+
+    <div class="roleta-container">
+        <div class="seta">▼</div>
+        <div id="roleta"></div>
+        <button class="btn-girar" onclick="girar()">Girar Roleta</button>
+    </div>
+
+    <div class="modal fade" id="modalIdeia" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border-success">
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        const ideias = [
+            { nome: "Lasanha de Doritos", cor: "brown", nivel: 4, emoji: "💩" },
+            { nome: "Commit Kamikaze", cor: "red", nivel: 5, emoji: "💥" },
+            { nome: "Corte TikTok", cor: "orange", nivel: 3, emoji: "✂️" },
+            { nome: "Startup no Telegram", cor: "purple", nivel: 5, emoji: "🚀" }
+        ];
+
+        let rotacao = 0;
+        let girando = false;
+
+        function girar() {
+            if (girando) return;
+            girando = true;
+
+            const index = Math.floor(Math.random() * ideias.length);
+            const ideia = ideias[index];
+            const grausPorFatia = 360 / ideias.length;
+            
+            // Acumula a rotação para não travar
+            rotacao += 1800 + (ideias.length - index) * grausPorFatia;
+            document.getElementById("roleta").style.transform = `rotate(${rotacao}deg)`;
+
+            setTimeout(() => {
+                girando = false;
+                const modalElement = document.getElementById('modalIdeia');
+                const modal = new bootstrap.Modal(modalElement);
+                
+                document.getElementById("modalBody").innerHTML = `
+                    <div class="text-center p-4">
+                        <h2 class="text-warning">☢️ TOXICIDADE DETECTADA</h2>
+                        <div class="display-1 fw-bold">${ideia.nivel}/5</div>
+                        <button class="btn-girar w-100" onclick="revelar('${ideia.nome}')">REVELAR</button>
+                    </div>
+                `;
+                modal.show();
+            }, 5100);
+        }
+
+        function revelar(nome) {
+            const ideia = ideias.find(i => i.nome === nome);
+            document.getElementById("modalBody").innerHTML = `
+                <div class="card-toxico">
+                    <h2>${ideia.emoji} ${ideia.nome}</h2>
+                    <p>IDEIA REVELADA COM SUCESSO NO MODO TESTE!</p>
+                    <button class="btn btn-outline-light w-100 mt-3" data-bs-dismiss="modal">FECHAR</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

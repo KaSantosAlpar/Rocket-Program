@@ -1,0 +1,67 @@
+/* css/layout.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    /* FUNDO RÁDIOATIVO (Substitua pela URL da imagem que escolhemos) */
+    background: url('../assets/images/background_radioativo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace; /* Fonte de código/terminal */
+    color: #39FF14; /* Verde Néon padrão */
+    overflow-x: hidden;
+}
+
+.container-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: brightness(0.3) blur(1px); /* Escurece o fundo para destacar o néon */
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14, 0 0 30px #39FF14;
+    animation: flicker 2s infinite; /* Efeito de luz piscando */
+}
+
+/* Botões de Modo e Voltar */
+.modos, .area-botoes {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-tatuado {
+    background: transparent;
+    border: 2px solid currentColor;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px currentColor;
+}
+
+.btn-tatuado:hover {
+    box-shadow: 0 0 15px currentColor;
+    transform: translateY(-2px);
+}
+
+/* Cores dos Botões (Usando currentColor do CSS) */
+.btn-sorteio { color: #ff00ff; /* Rosa choque */ }
+.btn-explorar { color: #00ffff; /* Ciano néon */ }
+.btn-voltar { color: #ff7a18; /* Laranja erro */ }
+
+/* Efeito de Flicker */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14; }
+    20%, 24%, 55% { text-shadow: none; opacity: 0.5; }
+}
