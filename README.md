@@ -15,6 +15,11 @@ Uma aplicação interativa estilo Pokedex, mas para "ideias terríveis". Inclui 
 👉 **[Ver projeto na Branch projeto-dex](https://github.com/KaSantosAlpar/Rocket-Program/tree/projeto-dex)**
 
 ---
+## 🍄 NOVO: Landing Page Super Mario Bros
+Projeto desenvolvido para praticar integração de APIs de mídia (YouTube), componentes avançados do Bootstrap 5 e manipulação de assets transparentes.
+* **Destaque:** Layout responsivo com Sticky Footer e grid dinâmico.
+* **Tecnologias:** Bootstrap 5, Flexbox, Iframe API.
+👉 **[Ver projeto na Branch projeto-mario](https://github.com/KaSantosAlpar/Rocket-Program/tree/projeto-mario)**
 
 ## 🌐 Portfólio Online
 👉 **[Acesse meu Portfólio e Projetos](https://kasantosalpar.github.io/Rocket-Program/02-html-css-bootstrap/)**
