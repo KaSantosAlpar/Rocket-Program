@@ -34,6 +34,6 @@
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=KaSantosAlpar&show_icons=true&theme=dracula&bg_color=E6E6FA&title_color=2E004B&text_color=2E004B&icon_color=9370DB&border_color=9370DB)
 
 ---
-![Snake Game](https://github.com/KaSantosAlpar/Rocket-Program/blob/output/github-contribution-grid-snake.svg)
+![Snake Game](https://raw.githubusercontent.com/KaSantosAlpar/Rocket-Program/output/github-contribution-grid-snake.svg)
 ---
 *“A melhor forma de prever o futuro é inventando-o.” – Alan Kay*
