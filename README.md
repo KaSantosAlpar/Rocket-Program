@@ -1,6 +1,10 @@
 <img src="assets/banner.png" alt="Banner Kariny Santos" width="100%"> 
 
 ---
+![HTML5](https://img.shields.io/badge/html5-%23E6E6FA.svg?style=for-the-badge&logo=html5&logoColor=2E004B)
+![CSS3](https://img.shields.io/badge/css3-%23D8BFD8.svg?style=for-the-badge&logo=css3&logoColor=2E004B)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%239370DB.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%2300FFFF.svg?style=for-the-badge&logo=javascript&logoColor=black)
 
 > Repositório dedicado ao registro de aprendizado e projetos práticos no **Rocket Program**. Aqui, transformo teoria em código! 💻✨
 
