@@ -1,202 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Tech & Coffee</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 
-/* CORPO */
-
+/* FUNDO */
 body{
-
-margin:0;
-font-family:Arial;
-
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#1aaa67,#358843,#2c5364);
+color:white;
 }
 
-/* CABEÇALHO */
+/* NAVBAR */
+.navbar{
+background: rgba(0,0,0,0.7);
+backdrop-filter: blur(10px);
+}
 
-header{
-
-background-color:#4F6F52;
-color:white;
-padding:15px;
-
-/*Flexbox para centralizar o conteúdo*/
+/* HERO */
+.hero{
+height:90vh;
 display:flex;
-flex-direction:column;  
 align-items:center;
-justify-content: center;
-
-}
-
-/* BOTÃO MENU */
-
-.botao-menu{
-position:absolute;
-left: 20px;
-font-size:25px;
-cursor:pointer;
-
-}
-
-/* MENU LATERAL */
-
-.menu-lateral{
-
-height:100%;
-width:0;
-position:fixed;
-top:0;
-left:0;
-background-color:#3A5A40;
-overflow-x:hidden;
-transition:0.3s;
-padding-top:60px;
-
-}
-
-/* LINKS */
-
-.menu-lateral a{
-
-display:block;
-color:white;
-padding:15px;
-text-decoration:none;
-
-}
-
-.menu-lateral a:hover{
-
-background-color:#588157;
-
-}
-
-/* BOTÃO FECHAR */
-
-.fechar{
-
-position:absolute;
-top:10px;
-right:20px;
-font-size:30px;
-
-}
-
-/* CONTEÚDO */
-
-main{
-
-padding:20px;
-
-}
-
-.imagem-cafeteria{
-display:block;
-margin:20px auto;
-width:80%;
-max-width:600px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-
-img {
-  width: 100%;
-  height: 400px; /* Ou a altura que você preferir */
-  object-fit: cover; /* Isso corta as bordas mas mantém a proporção da foto */
-}
-
-/* RODAPÉ */
-
-footer{
-
-background-color:#4F6F52;
-color:white;
+justify-content:center;
 text-align:center;
-padding:15px;
-position: fixed;
-bottom: 0;
-width: 100%;
 
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
+
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:60px;
+color:#5ead39;
+text-shadow:0 0 15px rgba(3, 255, 179, 0.8);
+}
+
+.hero p{
+font-size:20px;
+opacity:0.9;
+}
+
+/* CARDS */
+.card-custom{
+background: rgba(255,255,255,0.05);
+border-radius:15px;
+backdrop-filter: blur(10px);
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.card-custom:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* BOTÃO */
+.btn-custom{
+background: linear-gradient(90deg,#19d0d6,#054a5f);
+border:none;
+color:white;
+}
+
+.btn-custom:hover{
+transform:scale(1.05);
+}
+
+/* FOOTER */
+footer{
+background: black;
+padding:20px;
+text-align:center;
+margin-top:40px;
 }
 
 </style>
 
 </head>
 
-
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">☕ Tech & Coffee</a>
 
-<header>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<span class="botao-menu" onclick="abrirMenu()">☰ Menu</span>
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<h1>☕ Tech & Coffee</h1>
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>☕ Tech & Coffee</h1>
+    <p>Onde o código e o café se encontram</p>
+    <a href="#" class="btn btn-custom mt-3">Explorar Menu</a>
+  </div>
+</section>
 
-<p>Onde o código e o café se encontram</p>
+<!-- CONTEÚDO -->
+<section class="container py-5 text-center">
 
-</header>
+  <h2 class="fw-bold mb-5">Nossos Destaques</h2>
 
+  <div class="row g-4">
 
+    <div class="col-md-4">
+      <div class="card card-custom p-3">
+        <h5>☕ Cafés Especiais</h5>
+        <p class="text-light">Seleção premium para devs exigentes</p>
+        <button class="btn btn-custom">Ver mais</button>
+      </div>
+    </div>
 
-<div id="menu" class="menu-lateral">
+    <div class="col-md-4">
+      <div class="card card-custom p-3">
+        <h5>💻 Espaço Tech</h5>
+        <p class="text-light">Ambiente ideal para estudar e trabalhar</p>
+        <button class="btn btn-custom">Ver mais</button>
+      </div>
+    </div>
 
-<a href="javascript:void(0)" class="fechar" onclick="fecharMenu()">×</a>
+    <div class="col-md-4">
+      <div class="card card-custom p-3">
+        <h5>🚀 Eventos</h5>
+        <p class="text-light">Workshops e encontros de tecnologia</p>
+        <button class="btn btn-custom">Ver mais</button>
+      </div>
+    </div>
 
-<a href="siteEmpresa.html">Início</a>
+  </div>
 
-<a href="layoutCafeteria.html">Menu</a>
+</section>
 
-<a href="missao.html"> Sobre Nós</a>
-
-<a href="formulario.html">Contato</a>
-
-</div>
-
-
-
-<main>
-
-<h2>Bem-vindo à cafeteria</h2>
-<image src="cafeteria.png" alt="Cafeteria Tech & Coffee" width="40%" height="300px">
-
-<p>Aqui vai seu conteúdo normal.</p>
-
-</main>
-
-
-
+<!-- FOOTER -->
 <footer>
-
-Rua dos Devs, nº 1024 - Bairro Binário - Cidade Tech - Contato: (11) 1234-5678
-
+  <p class="text-muted">Rua dos Devs, 1024 • Contato: (11) 1234-5678</p>
 </footer>
 
-
-
-<script>
-
-function abrirMenu(){
-
-document.getElementById("menu").style.width="250px";
-
-}
-
-function fecharMenu(){
-
-document.getElementById("menu").style.width="0";
-
-}
-
-</script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>

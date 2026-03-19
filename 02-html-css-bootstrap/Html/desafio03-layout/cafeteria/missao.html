@@ -1,51 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
 <meta charset="UTF-8">
-<title>Nossa História | Tech & Coffee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sobre | Tech & Coffee</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 
+/* FUNDO PADRÃO */
 body{
-
-font-family:Arial;
-margin:0;
-
+font-family:'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#136b3f,#39ad4d,#2c5364);
+color:white;
 }
 
-header{
+/* NAVBAR */
+.navbar{
+background: rgba(0,0,0,0.7);
+backdrop-filter: blur(10px);
+}
 
-background-color:#4F6F52;
-color:white;
-padding:15px;
+/* HERO */
+.hero{
+height:60vh;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
 
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085");
+
+background-size:cover;
+background-position:center;
 }
 
-main{
+.hero h1{
+font-size:50px;
+color:#0b5a9b;
+}
 
+/* CONTEÚDO */
+.card-custom{
+background: rgba(255,255,255,0.05);
 padding:30px;
-max-width:800px;
-margin:auto;
-
+border-radius:15px;
+backdrop-filter: blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+margin-bottom:30px;
 }
 
-h2{
-
-color:#4F6F52;
-
+/* LISTA */
+ul{
+list-style:none;
+padding:0;
 }
 
+ul li{
+margin:10px 0;
+}
+
+/* FOOTER */
 footer{
-
-background-color:#4F6F52;
-color:white;
+background:black;
+padding:20px;
 text-align:center;
-padding:15px;
-position:fixed;
-bottom:0;
-width:100%;
-
+margin-top:50px;
 }
 
 </style>
@@ -54,72 +79,99 @@ width:100%;
 
 <body>
 
-<header>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">☕ Tech & Coffee</a>
 
-<h1> Nossa História 💚</h1>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-</header>
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>💚 Nossa História</h1>
+    <p>Onde café e tecnologia se conectam</p>
+  </div>
+</section>
 
-<main>
+<!-- CONTEÚDO -->
+<section class="container py-5">
 
-<h2>O nascimento da Tech & Coffee</h2>
+  <!-- HISTÓRIA -->
+  <div class="card-custom">
+    <h3 class="fw-bold mb-3">O nascimento da Tech & Coffee</h3>
 
-<p>
+    <p class="text-light">
+      A Tech & Coffee nasceu da união entre duas paixões: tecnologia e café. Fundada em 2025,
+      com o objetivo de criar um ambiente onde estudantes, desenvolvedores e amantes da tecnologia
+      pudessem se sentir inspirados.
+    </p>
 
-A Tech & Coffee nasceu da união entre duas paixões: tecnologia e café. Fundada em 2025, a cafeteria surgiu com o propósito de criar um ambiente onde estudantes, desenvolvedores e amantes da tecnologia pudessem se sentir inspirados.
+    <p class="text-light">
+      Criamos um espaço acolhedor, com café de qualidade e estrutura pensada para produtividade,
+      criatividade e conexão entre pessoas.
+    </p>
+  </div>
 
-A ideia começou com a observação de que muitos profissionais de tecnologia buscavam um espaço confortável para estudar, trabalhar e trocar experiências.
+  <!-- MISSÃO / VISÃO -->
+  <div class="row g-4">
 
-Assim, criamos um ambiente acolhedor, com café de qualidade e um espaço pensado para criatividade e conexão.
+    <div class="col-md-6">
+      <div class="card-custom">
+        <h4>🎯 Missão</h4>
+        <p class="text-light">
+          Proporcionar um ambiente inspirador que une café e tecnologia,
+          estimulando criatividade e aprendizado.
+        </p>
+      </div>
+    </div>
 
-</p>
+    <div class="col-md-6">
+      <div class="card-custom">
+        <h4>🚀 Visão</h4>
+        <p class="text-light">
+          Ser referência como cafeteria para a comunidade tecnológica,
+          promovendo inovação e experiências únicas.
+        </p>
+      </div>
+    </div>
 
+  </div>
 
-<h2>Missão</h2>
+  <!-- VALORES -->
+  <div class="card-custom">
+    <h4>💡 Valores</h4>
 
-<p>
+    <ul>
+      <li>✔ Qualidade em tudo</li>
+      <li>✔ Inovação e criatividade</li>
+      <li>✔ Respeito às pessoas</li>
+      <li>✔ Sustentabilidade</li>
+      <li>✔ Comunidade e colaboração</li>
+    </ul>
+  </div>
 
-Proporcionar um ambiente inspirador que une café de qualidade e tecnologia, estimulando criatividade, aprendizado e conexão entre pessoas.
+</section>
 
-</p>
-
-
-<h2>Visão</h2>
-
-<p>
-
-Ser reconhecida como uma cafeteria referência para a comunidade tecnológica, promovendo inovação, conhecimento e experiências únicas.
-
-</p>
-
-
-<h2>Valores</h2>
-
-<ul>
-
-<li>Qualidade em tudo que fazemos</li>
-
-<li>Inovação e criatividade</li>
-
-<li>Respeito às pessoas</li>
-
-<li>Sustentabilidade</li>
-
-<li>Comunidade e colaboração</li>
-
-</ul>
-
-
-</main>
-
-
+<!-- FOOTER -->
 <footer>
-
-Tech & Coffee © 2026
-
+  <p class="text-muted">Tech & Coffee © 2026</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
