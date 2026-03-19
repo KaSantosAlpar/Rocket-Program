@@ -1,4 +1,4 @@
-/* RESET */
+
 
 *{
 margin:0;
@@ -118,16 +118,33 @@ font-size:32px;
 .card {
     background: rgba(255, 255, 255, 0.05);
     padding: 25px;
-    width: 280px; /* Isso ajuda a não ficar "largo" demais! */
+    /* Cálculo: (100% / 3 colunas) - (compensação do gap) */
+    width: calc(33.33% - 20px); 
+    min-width: 280px; /* Impede que o card fique fino demais em telas menores */
     border-radius: 15px;
     transition: 0.4s;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* Dica: adiciona um efeito de vidro tech */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho do card */
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 15px 30px rgba(255,0,200,0.3);
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #ff00c8;
+    box-shadow: 0 10px 25px rgba(255, 0, 200, 0.2);
+}
+
+.projetos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards pulem para a linha de baixo */
+    justify-content: center;
+    gap: 25px; /* Espaço entre os cards */
+    margin-top: 40px;
+    width: 100%;
 }
 
 .card h3{
