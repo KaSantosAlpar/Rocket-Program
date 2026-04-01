@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Automação de Luzes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🏠 Automação de Luzes</h1>
+    <div id="status">Carregando...</div>
+
+    <div class="comodos-grid">
+
+        <div class="comodo" data-comodo="quarto" data-luz="desligada">
+            <h3>Quarto</h3>
+            <div class="luz-status">DESLIGADA</div>
+            <button data-acao="ligar" data-comodo="quarto">Ligar</button>
+            <button data-acao="desligar" data-comodo="quarto">Desligar</button>
+        </div>
+
+        <div class="comodo" data-comodo="sala" data-luz="desligada">
+            <h3>Sala</h3>
+            <div class="luz-status">DESLIGADA</div>
+            <button data-acao="ligar" data-comodo="sala">Ligar</button>
+            <button data-acao="desligar" data-comodo="sala">Desligar</button>
+        </div>
+
+        <div class="comodo" data-comodo="cozinha" data-luz="desligada">
+            <h3>Cozinha</h3>
+            <div class="luz-status">DESLIGADA</div>
+            <button data-acao="ligar" data-comodo="cozinha">Ligar</button>
+            <button data-acao="desligar" data-comodo="cozinha">Desligar</button>
+        </div>
+
+        <div class="comodo" data-comodo="banheiro" data-luz="desligada">
+            <h3>Banheiro</h3>
+            <div class="luz-status">DESLIGADA</div>
+            <button data-acao="ligar" data-comodo="banheiro">Ligar</button>
+            <button data-acao="desligar" data-comodo="banheiro">Desligar</button>
+        </div>
+
+        <div class="comodo" data-comodo="garagem" data-luz="desligada">
+            <h3>Garagem</h3>
+            <div class="luz-status">DESLIGADA</div>
+            <button data-acao="ligar" data-comodo="garagem">Ligar</button>
+            <button data-acao="desligar" data-comodo="garagem">Desligar</button>
+        </div>
+
+    </div>
+
+    <div class="controles-gerais">
+        <button id="tudoLigar">Ligar Tudo</button>
+        <button id="tudoDesligar">Desligar Tudo</button>
+        <button id="statusBtn">Status</button>
+    </div>
+
+    <div id="logMensagens"></div>
+</div>
+
+<script src="CentralLuzes.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
