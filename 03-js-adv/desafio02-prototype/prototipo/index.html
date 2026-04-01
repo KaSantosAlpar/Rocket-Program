@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Prototipos Array - Métodos Manuais</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', monospace;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #eee;
+            line-height: 1.6;
+        }
+        .container {
+            background: #16213e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 { color: #00d4ff; text-align: center; }
+        h2 { color: #ff6b9d; border-bottom: 2px solid #ff6b9d; padding-bottom: 10px; }
+        .teste {
+            background: #0f3460;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #00d4ff;
+        }
+        .destaque { 
+            background: #533483; 
+            padding: 10px; 
+            border-radius: 5px; 
+            color: #ffd93d;
+            font-weight: bold;
+        }
+        button {
+            background: linear-gradient(45deg, #ff6b9d, #00d4ff);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Prototipos Array Manuais</h1>
+        
+        <button onclick="rodarTestes()"> Executar Todos os Testes</button>
+        <button onclick="limparConsole()"> Limpar Console</button>
+        
+        <div id="resultado"></div>
+    </div>
+
+    <script src="../prototipos.js"></script>
+    <script src="../testes.js"></script>
+    <script>
+        function rodarTestes() {
+            console.clear();
+            console.log('%c TESTES EXECUTADOS COM SUCESSO!', 'font-size: 20px; color: #00ff88; font-weight: bold;');
+    
+        }
+        
+        function limparConsole() {
+            console.clear();
+        }
+        
+        // Executa automaticamente ao carregar
+        window.onload = () => {
+            setTimeout(() => {
+                console.log('%c Abra o CONSOLE (F12) para ver os testes!', 'font-size: 18px; color: #ffd93d; background: #ff4757; padding: 10px;');
+            }, 500);
+        };
+    </script>
+</body>
+</html>
