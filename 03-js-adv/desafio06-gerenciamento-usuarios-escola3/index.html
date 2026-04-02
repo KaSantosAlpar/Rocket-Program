@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="EscolaApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistem Escolar | Services</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="AppController as app">
+
+    <header class="header">
+        <div class="container">
+            <h1>🏫 Sistema de Cadastro</h1>
+            <div class="status">
+                Total: <strong>{{ app.usuarios.length }}</strong> usuários cadastrados
+            </div>
+        </div>
+    </header>
+
+    <main class="container" ng-controller="ListaController as lista">
+        <section class="form-section">
+            <form ng-submit="lista.adicionarUsuario()" class="form-cadastro">
+                <input type="text" ng-model="lista.novoUsuario.nome" placeholder="Nome completo" required>
+                <select ng-model="lista.novoUsuario.tipo" required>
+                    <option value="">Selecione o tipo...</option>
+                    <option value="Aluno">Aluno</option>
+                    <option value="Professor">Professor</option>
+                </select>
+                <button type="submit" class="btn-adicionar">Adicionar</button>
+            </form>
+        </section>
+
+        <section class="grid">
+            <div class="card" ng-repeat="u in app.usuarios | orderBy:'nome' track by $index">
+                <div class="avatar">
+                    <span ng-if="u.tipo === 'Aluno'">👨‍🎓</span>
+                    <span ng-if="u.tipo === 'Professor'">👨‍🏫</span>
+                </div>
+                <h3>{{ u.nome | uppercase }}</h3>
+                <p>{{ u.tipo }} - {{ u.dataCadastro | date:'dd/MM/yyyy' }}</p>
+                <button class="btn-remover" ng-click="lista.removerUsuario($index)">Remover</button>
+            </div>
+        </section>
+
+        <div ng-if="app.usuarios.length === 0" class="vazio">
+            <p>Nenhum usuário no sistema.</p>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
