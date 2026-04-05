@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="EscolaApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏫 Sistema Escolar - Validação + API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP CONTROLLER PRINCIPAL -->
+    <div ng-controller="AppController as app">
+        <header class="header">
+            <div class="container">
+                <h1><i class="fas fa-school"></i> Sistema Escolar Pro</h1>
+                <div class="status">
+                    <span>Total: {{app.usuarios.length}} usuários</span>
+                    <span class="badge alunos">{{ (app.usuarios | filter:{tipo:'Aluno'}).length }} Alunos</span>
+                    <span class="badge profs">{{ (app.usuarios | filter:{tipo:'Professor'}).length }} Profs</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- FORMULÁRIO VALIDADO - ESCOPO ANINHADO -->
+        <div ng-controller="CadastroController as cadastro">
+            <section class="form-section container">
+                <h2><i class="fas fa-user-plus"></i> Cadastro de Usuário</h2>
+                
+                <!-- MENSAGEM DE STATUS -->
+                <div class="alert" ng-if="cadastro.mensagem.status" 
+                     ng-class="cadastro.mensagem.tipo">
+                    <i class="fas" ng-class="cadastro.mensagem.icone"></i>
+                    {{cadastro.mensagem.texto}}
+                </div>
+
+                <!-- FORMULÁRIO COM VALIDAÇÃO -->
+                <form name="formCadastro" 
+                      ng-submit="cadastro.salvarUsuario(formCadastro.$valid)" 
+                      novalidate 
+                      class="form-cadastro">
+                    
+                    <!-- NOME -->
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Nome Completo <span class="required">*</span></label>
+                        <input type="text" 
+                               name="nome" 
+                               ng-model="cadastro.novoUsuario.nome"
+                               ng-minlength="3"
+                               ng-maxlength="50"
+                               placeholder="Digite o nome completo"
+                               required>
+                        
+                        <!-- ERROS NOME -->
+                        <div class="erros">
+                            <div ng-show="formCadastro.nome.$error.required" class="erro">
+                                <i class="fas fa-exclamation-circle"></i> Nome é obrigatório
+                            </div>
+                            <div ng-show="formCadastro.nome.$error.minlength" class="erro">
+                                <i class="fas fa-exclamation-circle"></i> Nome deve ter pelo menos 3 caracteres
+                            </div>
+                            <div ng-show="formCadastro.nome.$error.maxlength" class="erro">
+                                <i class="fas fa-exclamation-circle"></i> Nome muito longo (máx 50 caracteres)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email <span class="required">*</span></label>
+                        <input type="email" 
+                               name="email"
+                               ng-model="cadastro.novoUsuario.email"
+                               placeholder="exemplo@dominio.com"
+                               required>
+                        
+                        <!-- ERROS EMAIL -->
+                        <div class="erros">
+                            <div ng-show="formCadastro.email.$error.required" class="erro">
+                                <i class="fas fa-exclamation-circle"></i> Email é obrigatório
+                            </div>
+                            <div ng-show="formCadastro.email.$error.email" class="erro">
+                                <i class="fas fa-exclamation-circle"></i> Email inválido
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TIPO -->
+                    <div class="form-group">
+                        <label><i class="fas fa-graduation-cap"></i> Tipo <span class="required">*</span></label>
+                        <select name="tipo" 
+                                ng-model="cadastro.novoUsuario.tipo" 
+                                required>
+                            <option value="">Selecione o tipo...</option>
+                            <option value="Aluno">👨‍🎓 Aluno</option>
+                            <option value="Professor">👨‍🏫 Professor</option>
+                        </select>
+                        
+                        <!-- ERRO TIPO -->
+                        <div ng-show="formCadastro.tipo.$error.required" class="erro">
+                            <i class="fas fa-exclamation-circle"></i> Selecione o tipo de usuário
+                        </div>
+                    </div>
+
+                    <!-- BOTÕES -->
+                    <div class="form-actions">
+                        <button type="submit" 
+                                ng-disabled="formCadastro.$invalid || cadastro.salvando"
+                                class="btn-salvar">
+                            <span ng-if="!cadastro.salvando">
+                                <i class="fas fa-save"></i> Salvar Usuário
+                            </span>
+                            <span ng-if="cadastro.salvando">
+                                <i class="fas fa-spinner fa-spin"></i> Salvando...
+                            </span>
+                        </button>
+                        <button type="button" 
+                                ng-click="cadastro.limparFormulario()" 
+                                class="btn-limpar">
+                            <i class="fas fa-times"></i> Limpar
+                        </button>
+                    </div>
+
+                    <!-- STATUS DO FORMULÁRIO -->
+                    <div class="form-status">
+                        <span ng-class="{'valid': formCadastro.$valid, 'invalid': formCadastro.$invalid}">
+                            Formulário: <strong>{{formCadastro.$valid ? '✅ VÁLIDO' : '❌ INVÁLIDO'}}</strong>
+                        </span>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <!-- LISTA SIMPLES -->
+        <section class="lista-section container">
+            <h2><i class="fas fa-list"></i> Usuários Recentes</h2>
+            <div class="usuarios-grid">
+                <div class="usuario-mini" ng-repeat="usuario in app.usuarios.slice(-4) | orderBy:'dataCadastro':true">
+                    <i ng-if="usuario.tipo === 'Aluno'" class="icon-aluno">👨‍🎓</i>
+                    <i ng-if="usuario.tipo === 'Professor'" class="icon-prof">👨‍🏫</i>
+                    <span>{{usuario.nome}}</span>
+                    <small>{{usuario.email}} • {{usuario.dataCadastro | date:'dd/MM/yy HH:mm'}}</small>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
