@@ -1,151 +1,186 @@
 <!DOCTYPE html>
-<html lang="pt-BR" ng-app="EscolaApp">
+<html ng-app="appCadastro">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏫 Sistema Escolar - Validação + API</title>
+    <title>Desafio 7 - Cadastro de Usuários</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .erro { color: red; font-size: 12px; margin-top: 5px; }
+        .sucesso { color: green; font-weight: bold; }
+        .carregando { color: blue; font-style: italic; }
+
+        button[disabled] { opacity: 0.6; cursor: not-allowed; }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- APP CONTROLLER PRINCIPAL -->
-    <div ng-controller="AppController as app">
-        <header class="header">
-            <div class="container">
-                <h1><i class="fas fa-school"></i> Sistema Escolar Pro</h1>
-                <div class="status">
-                    <span>Total: {{app.usuarios.length}} usuários</span>
-                    <span class="badge alunos">{{ (app.usuarios | filter:{tipo:'Aluno'}).length }} Alunos</span>
-                    <span class="badge profs">{{ (app.usuarios | filter:{tipo:'Professor'}).length }} Profs</span>
-                </div>
-            </div>
-        </header>
+<div ng-controller="CadastroController as ctrl">
+    <h2>Cadastro de Usuário</h2>
 
-        <!-- FORMULÁRIO VALIDADO - ESCOPO ANINHADO -->
-        <div ng-controller="CadastroController as cadastro">
-            <section class="form-section container">
-                <h2><i class="fas fa-user-plus"></i> Cadastro de Usuário</h2>
-                
-                <!-- MENSAGEM DE STATUS -->
-                <div class="alert" ng-if="cadastro.mensagem.status" 
-                     ng-class="cadastro.mensagem.tipo">
-                    <i class="fas" ng-class="cadastro.mensagem.icone"></i>
-                    {{cadastro.mensagem.texto}}
-                </div>
+    <form name="formUsuario" ng-submit="ctrl.salvar()" novalidate>
 
-                <!-- FORMULÁRIO COM VALIDAÇÃO -->
-                <form name="formCadastro" 
-                      ng-submit="cadastro.salvarUsuario(formCadastro.$valid)" 
-                      novalidate 
-                      class="form-cadastro">
-                    
-                    <!-- NOME -->
-                    <div class="form-group">
-                        <label><i class="fas fa-user"></i> Nome Completo <span class="required">*</span></label>
-                        <input type="text" 
-                               name="nome" 
-                               ng-model="cadastro.novoUsuario.nome"
-                               ng-minlength="3"
-                               ng-maxlength="50"
-                               placeholder="Digite o nome completo"
-                               required>
-                        
-                        <!-- ERROS NOME -->
-                        <div class="erros">
-                            <div ng-show="formCadastro.nome.$error.required" class="erro">
-                                <i class="fas fa-exclamation-circle"></i> Nome é obrigatório
-                            </div>
-                            <div ng-show="formCadastro.nome.$error.minlength" class="erro">
-                                <i class="fas fa-exclamation-circle"></i> Nome deve ter pelo menos 3 caracteres
-                            </div>
-                            <div ng-show="formCadastro.nome.$error.maxlength" class="erro">
-                                <i class="fas fa-exclamation-circle"></i> Nome muito longo (máx 50 caracteres)
-                            </div>
-                        </div>
-                    </div>
+        <!-- Nome -->
+        <label>Nome *</label>
+        <input type="text"
+               name="nome"
+               ng-model="ctrl.usuario.nome"
+               required
+               ng-minlength="2">
 
-                    <!-- EMAIL -->
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> Email <span class="required">*</span></label>
-                        <input type="email" 
-                               name="email"
-                               ng-model="cadastro.novoUsuario.email"
-                               placeholder="exemplo@dominio.com"
-                               required>
-                        
-                        <!-- ERROS EMAIL -->
-                        <div class="erros">
-                            <div ng-show="formCadastro.email.$error.required" class="erro">
-                                <i class="fas fa-exclamation-circle"></i> Email é obrigatório
-                            </div>
-                            <div ng-show="formCadastro.email.$error.email" class="erro">
-                                <i class="fas fa-exclamation-circle"></i> Email inválido
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TIPO -->
-                    <div class="form-group">
-                        <label><i class="fas fa-graduation-cap"></i> Tipo <span class="required">*</span></label>
-                        <select name="tipo" 
-                                ng-model="cadastro.novoUsuario.tipo" 
-                                required>
-                            <option value="">Selecione o tipo...</option>
-                            <option value="Aluno">👨‍🎓 Aluno</option>
-                            <option value="Professor">👨‍🏫 Professor</option>
-                        </select>
-                        
-                        <!-- ERRO TIPO -->
-                        <div ng-show="formCadastro.tipo.$error.required" class="erro">
-                            <i class="fas fa-exclamation-circle"></i> Selecione o tipo de usuário
-                        </div>
-                    </div>
-
-                    <!-- BOTÕES -->
-                    <div class="form-actions">
-                        <button type="submit" 
-                                ng-disabled="formCadastro.$invalid || cadastro.salvando"
-                                class="btn-salvar">
-                            <span ng-if="!cadastro.salvando">
-                                <i class="fas fa-save"></i> Salvar Usuário
-                            </span>
-                            <span ng-if="cadastro.salvando">
-                                <i class="fas fa-spinner fa-spin"></i> Salvando...
-                            </span>
-                        </button>
-                        <button type="button" 
-                                ng-click="cadastro.limparFormulario()" 
-                                class="btn-limpar">
-                            <i class="fas fa-times"></i> Limpar
-                        </button>
-                    </div>
-
-                    <!-- STATUS DO FORMULÁRIO -->
-                    <div class="form-status">
-                        <span ng-class="{'valid': formCadastro.$valid, 'invalid': formCadastro.$invalid}">
-                            Formulário: <strong>{{formCadastro.$valid ? '✅ VÁLIDO' : '❌ INVÁLIDO'}}</strong>
-                        </span>
-                    </div>
-                </form>
-            </section>
+        <div class="erro" ng-show="formUsuario.nome.$touched && formUsuario.nome.$error.required">
+            Nome é obrigatório
         </div>
 
-        <!-- LISTA SIMPLES -->
-        <section class="lista-section container">
-            <h2><i class="fas fa-list"></i> Usuários Recentes</h2>
-            <div class="usuarios-grid">
-                <div class="usuario-mini" ng-repeat="usuario in app.usuarios.slice(-4) | orderBy:'dataCadastro':true">
-                    <i ng-if="usuario.tipo === 'Aluno'" class="icon-aluno">👨‍🎓</i>
-                    <i ng-if="usuario.tipo === 'Professor'" class="icon-prof">👨‍🏫</i>
-                    <span>{{usuario.nome}}</span>
-                    <small>{{usuario.email}} • {{usuario.dataCadastro | date:'dd/MM/yy HH:mm'}}</small>
-                </div>
-            </div>
-        </section>
+        <div class="erro" ng-show="formUsuario.nome.$touched && formUsuario.nome.$error.minlength">
+            Nome deve ter pelo menos 2 caracteres
+        </div>
+
+        <br>
+
+        <!-- Email -->
+        <label>Email *</label>
+        <input type="email"
+               name="email"
+               ng-model="ctrl.usuario.email"
+               required>
+
+        <div class="erro" ng-show="formUsuario.email.$touched && formUsuario.email.$error.required">
+            Email é obrigatório
+        </div>
+
+        <div class="erro" ng-show="formUsuario.email.$touched && formUsuario.email.$error.email">
+            Email inválido
+        </div>
+
+        <br>
+
+        <!-- Tipo -->
+        <label>Tipo *</label>
+        <select name="tipo"
+                ng-model="ctrl.usuario.tipo"
+                required>
+            <option value="">Selecione...</option>
+            <option value="Aluno">Aluno</option>
+            <option value="Professor">Professor</option>
+        </select>
+
+        <div class="erro" ng-show="formUsuario.tipo.$touched && formUsuario.tipo.$error.required">
+            Selecione um tipo
+        </div>
+
+        <br>
+
+        <!-- Botão -->
+        <button type="submit"
+                ng-disabled="formUsuario.$invalid || ctrl.salvando">
+            {{ctrl.salvando ? 'Carregando...' : 'Cadastrar'}}
+        </button>
+
+    </form>
+
+    <!-- Mensagem -->
+    <div ng-show="ctrl.mensagem"
+         ng-class="{'sucesso': ctrl.sucesso, 'carregando': ctrl.salvando, 'erro': !ctrl.sucesso}">
+        {{ctrl.mensagem}}
     </div>
 
-    <script src="app.js"></script>
+    <!-- Lista -->
+    <h3>Usuários Cadastrados ({{ctrl.usuarios.length}})</h3>
+    <ul>
+        <li ng-repeat="user in ctrl.usuarios track by $index">
+            {{user.nome}} - {{user.email}} ({{user.tipo}})
+        </li>
+    </ul>
+</div>
+
+<script>
+angular.module('appCadastro', [])
+
+// SERVICE
+.service('UsuarioService', function($q, $timeout) {
+
+    this.salvar = function(usuario) {
+        var deferred = $q.defer();
+
+        $timeout(function() {
+
+            if (Math.random() < 0.1) {
+                deferred.reject('Erro no servidor!');
+            } else {
+                deferred.resolve(usuario);
+            }
+
+        }, 2000);
+
+        return deferred.promise;
+    };
+
+})
+
+// CONTROLLER
+.controller('CadastroController', function($scope, UsuarioService) {
+
+    var ctrl = this;
+
+    ctrl.usuarios = [];
+    ctrl.usuario = {};
+    ctrl.salvando = false;
+    ctrl.mensagem = '';
+    ctrl.sucesso = false;
+
+    ctrl.salvar = function() {
+
+        if ($scope.formUsuario.$invalid) return;
+
+        ctrl.salvando = true;
+        ctrl.mensagem = 'Salvando usuário...';
+        ctrl.sucesso = false;
+
+        UsuarioService.salvar(ctrl.usuario)
+
+            .then(function(usuarioSalvo) {
+
+                ctrl.usuarios.push(angular.copy(usuarioSalvo));
+
+                ctrl.mensagem = 'Usuário cadastrado com sucesso!';
+                ctrl.sucesso = true;
+
+                // limpa formulário
+                ctrl.usuario = {};
+                $scope.formUsuario.$setPristine();
+                $scope.formUsuario.$setUntouched();
+            })
+
+            .catch(function(erro) {
+
+                ctrl.mensagem = erro || 'Erro ao cadastrar usuário!';
+                ctrl.sucesso = false;
+
+            })
+
+            .finally(function () {
+                ctrl.salvando = false;
+            });
+    };
+
+});
+</script>
+
 </body>
 </html>
