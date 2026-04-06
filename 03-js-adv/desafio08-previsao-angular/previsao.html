@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="previsaoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Previsão do Tempo - AngularJS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="previsao.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="PrevisaoController as ctrl" class="container">
+        <div class="card">
+            <div class="header">
+                <h1> Previsão do Tempo</h1>
+                <p>AngularJS + OpenWeatherMap API</p>
+            </div>
+
+            <!-- Formulário de busca -->
+            <div class="search-box">
+                <input type="text" 
+                       ng-model="ctrl.cidade" 
+                       placeholder="Digite uma cidade (ex: São Paulo, Rio)"
+                       ng-keyup="ctrl.buscarClima($event)">
+                <button ng-click="ctrl.buscarClima()" 
+                        ng-disabled="ctrl.carregando">
+                    {{ctrl.carregando ? ' Buscando...' : ' Buscar'}}
+                </button>
+            </div>
+
+            <!-- Loading -->
+            <div ng-show="ctrl.carregando" class="loading">
+                <div class="spinner"></div>
+                <p>Carregando previsão...</p>
+            </div>
+
+            <!-- Erro -->
+            <div ng-show="ctrl.erro" class="erro">
+                <p>❌ {{ctrl.erro}}</p>
+                <button ng-click="ctrl.buscarClima()">Tentar novamente</button>
+            </div>
+
+            <!-- Dados do clima -->
+            <div ng-show="ctrl.clima && !ctrl.carregando && !ctrl.erro" class="clima-info">
+                <div class="cidade">
+                    <h2>{{ctrl.clima.name}}, {{ctrl.clima.sys.country}}</h2>
+                </div>
+
+                <div class="icone-temp">
+                    <img ng-src="http://openweathermap.org/img/wn/{{ctrl.clima.weather[0].icon}}@2x.png" 
+                         alt="{{ctrl.clima.weather[0].description}}" 
+                         class="icone">
+                    <div class="temperatura">
+                        <span class="temp">{{ctrl.clima.main.temp | number:0}}°</span>
+                        <span class="unit">C</span>
+                    </div>
+                </div>
+
+                <div class="descricao">
+                    <p>{{ctrl.clima.weather[0].description | capitalize}}</p>
+                    <div class="detalhes">
+                        <span>Sensação: {{ctrl.clima.main.feels_like | number:0}}°C</span>
+                        <span>Umidade: {{ctrl.clima.main.humidity}}%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info API -->
+            <div class="footer">
+                <small>Dados via <a href="https://openweathermap.org" target="_blank">OpenWeatherMap</a></small>
+            </div>
+        </div>
+    </div>
+
+    <script src="previsao.js"></script>
+</body>
+</html>
