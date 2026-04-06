@@ -28,7 +28,7 @@
   * *Módulo 01 Lógica:* CRUD, Bhaskara e Jogo de Adivinhação.
   * *JS Avançado (Desafio 08):* [Previsão do Tempo com Angular (Consumo de API)](./03-js-adv/desafio08-previsao-angular/).
   * *JS Avançado (Desafio 09):* [Validador de Dados com Regex](./03-js-adv/desafio09-validacao-regex/).
-  * *Projeto Final:* **[Monitor de Hábitos e Humor (Em desenvolvimento)](./03-js-adv/projeto-final-habitos/)** — Aplicação de OO e AngularJS (Entrega: 09/04).
+  * *Projeto Final:* **[MoodTrack (Em desenvolvimento)](./03-js-adv/projeto-final-habitos/)** — Aplicação de OO e AngularJS (Entrega: 09/04).
 
 ---
 
