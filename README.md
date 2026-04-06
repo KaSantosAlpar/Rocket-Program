@@ -17,18 +17,23 @@
 | [Tech & Coffee](https://kasantosalpar.github.io/Rocket-Program/02-html-css-bootstrap/) | Site completo com estética minimalista  | Versão 1.0 | CSS / Flex |
 
 ---
+
 ## 📂 Trilha de Evolução
 
-### 🎨 Front-end & Design
-* **Módulo 02:** [HTML, CSS e Bootstrap](./02-html-css-bootstrap/)
-  * *Destaques:* Cartão de Perfil Profissional e Portfólio Pessoal.
+### 🧠 Módulo 01: JavaScript Básico
+* **Foco:** Lógica de programação e fundamentos da linguagem.
+* **Projetos:** [CRUD](./01-javascript-basico/), Cálculo de Bhaskara e Jogo de Adivinhação.
 
-### 🧠 Lógica, JS Avançado & Arquitetura
-* **Módulo 01:** [JavaScript Basico](./01-javascript-basico/) e [JS Avançado (03-js-adv)](./03-js-adv/)
-  * *Módulo 01 Lógica:* CRUD, Bhaskara e Jogo de Adivinhação.
-  * *JS Avançado (Desafio 08):* [Previsão do Tempo com Angular (Consumo de API)](./03-js-adv/desafio08-previsao-angular/).
-  * *JS Avançado (Desafio 09):* [Validador de Dados com Regex](./03-js-adv/desafio09-validacao-regex/).
-  * *Projeto Final:* **[MoodTrack (Em desenvolvimento)](./03-js-adv/projeto-final-habitos/)** — Aplicação de OO e AngularJS (Entrega: 09/04).
+### 🎨 Módulo 02: HTML, CSS & JS Web
+* **Foco:** Interfaces responsivas, manipulação de DOM e Bootstrap 5.
+* **Projetos:** [Landing Pages](./02-html-css-bootstrap/), Cartão de Perfil e Portfólio Pessoal.
+
+### 🚀 Módulo 03: JavaScript Avançado & Frameworks
+* **Foco:** AngularJS, Expressões Regulares (Regex) e Consumo de APIs.
+* **Destaques:**
+    * **[Desafio 08 - Previsão do Tempo](./03-js-adv/desafio08-previsao-angular/):** Integração com OpenWeather API e AngularJS.
+    * **[Desafio 09 - Validação Regex](./03-js-adv/desafio09-validacao-regex/):** Validação profissional de formulários.
+    * **[Projeto Final - Monitor de Hábitos](./03-js-adv/projeto-final-habitos/):** Arquitetura Orientada a Objetos e Monitor de Humor (Entrega: 09/04).
 
 ---
 
